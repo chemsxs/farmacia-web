@@ -7,54 +7,95 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
+
 body{
 font-family:'Segoe UI',sans-serif;
-background:#f8fbff;
+background:#f1f9ff;
+color:#1e293b;
 }
 
-header{background:#0ea5e9;color:white;padding:20px;text-align:center;}
-nav{background:#0284c7;padding:12px;text-align:center;}
-nav a{color:white;margin:0 15px;text-decoration:none;font-weight:600;}
+header{
+background:#0ea5e9;
+color:white;
+padding:20px;
+text-align:center;
+}
 
-.container{padding:30px;}
+nav{
+background:#0284c7;
+padding:12px;
+text-align:center;
+}
 
-.search{text-align:center;margin-bottom:25px;}
-.search input{
-padding:10px;
-width:60%;
-max-width:400px;
-border-radius:6px;
-border:1px solid #cbd5e1;
+nav a{
+color:white;
+margin:0 15px;
+text-decoration:none;
+font-weight:600;
+}
+
+.banner{
+background:linear-gradient(135deg,#0ea5e9,#38bdf8);
+color:white;
+text-align:center;
+padding:60px 20px;
+}
+
+.container{
+padding:40px;
+max-width:1200px;
+margin:auto;
 }
 
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
-gap:20px;
+grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+gap:25px;
 }
 
 .card{
 background:white;
-padding:20px;
-border-radius:16px;
-box-shadow:0 8px 20px rgba(0,0,0,0.05);
+border-radius:18px;
+box-shadow:0 10px 25px rgba(0,0,0,0.05);
+overflow:hidden;
 transition:0.3s;
 animation:fadeUp 0.6s ease forwards;
 opacity:0;
 }
 
 .card:hover{
-transform:translateY(-6px);
+transform:translateY(-8px);
 }
 
-.price{color:#0ea5e9;font-weight:bold;margin:8px 0;}
+.card img{
+width:100%;
+height:200px;
+object-fit:cover;
+}
+
+.card-content{
+padding:20px;
+text-align:center;
+}
+
+.card h3{
+margin-bottom:8px;
+font-size:18px;
+}
+
+.price{
+color:#0ea5e9;
+font-weight:bold;
+font-size:18px;
+margin:10px 0;
+}
 
 button{
 background:#0ea5e9;
 color:white;
 border:none;
-padding:8px 14px;
-border-radius:6px;
+padding:10px 15px;
+border-radius:8px;
 cursor:pointer;
 transition:0.3s;
 }
@@ -79,12 +120,13 @@ background:#25D366;
 color:white;
 padding:15px;
 border-radius:50%;
-text-decoration:none;
 font-size:22px;
+text-decoration:none;
+box-shadow:0 6px 15px rgba(0,0,0,0.2);
 }
 
 @keyframes fadeUp{
-from{opacity:0;transform:translateY(30px);}
+from{opacity:0;transform:translateY(40px);}
 to{opacity:1;transform:translateY(0);}
 }
 </style>
@@ -93,7 +135,7 @@ to{opacity:1;transform:translateY(0);}
 <body>
 
 <header>
-<h2>Medicamentos Disponibles</h2>
+<h2>Farmacia El Descuento Jossy 💊</h2>
 </header>
 
 <nav>
@@ -102,13 +144,52 @@ to{opacity:1;transform:translateY(0);}
 <a href="contacto.html">Contacto</a>
 </nav>
 
-<div class="container">
-
-<div class="search">
-<input type="text" id="buscador" placeholder="Buscar medicamento...">
+<div class="banner">
+<h1>Nuestros Medicamentos</h1>
+<p>Calidad y buenos precios para tu salud</p>
 </div>
 
-<div class="grid" id="lista"></div>
+<div class="container">
+
+<div class="grid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88">
+<div class="card-content">
+<h3>Paracetamol 500mg</h3>
+<p class="price">$2.50</p>
+<button onclick="consultar('Paracetamol 500mg')">Consultar disponibilidad</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5">
+<div class="card-content">
+<h3>Ibuprofeno 400mg</h3>
+<p class="price">$3.00</p>
+<button onclick="consultar('Ibuprofeno 400mg')">Consultar disponibilidad</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2">
+<div class="card-content">
+<h3>Vitamina C</h3>
+<p class="price">$5.00</p>
+<button onclick="consultar('Vitamina C')">Consultar disponibilidad</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1600959907703-125ba1374a12">
+<div class="card-content">
+<h3>Jarabe Infantil</h3>
+<p class="price">$4.25</p>
+<button onclick="consultar('Jarabe Infantil')">Consultar disponibilidad</button>
+</div>
+</div>
+
+</div>
 
 </div>
 
@@ -119,37 +200,6 @@ to{opacity:1;transform:translateY(0);}
 <a class="whatsapp" href="https://wa.me/TU_NUMERO_AQUI" target="_blank">💬</a>
 
 <script>
-let medicamentos=[
-"Paracetamol","Ibuprofeno","Amoxicilina","Vitamina C","Vitamina B12",
-"Loratadina","Omeprazol","Diclofenaco","Antigripal","Melatonina",
-"Ácido Fólico","Aspirina","Calcio","Suero Oral","Insulina",
-"Alcohol","Termómetro","Gel Antibacterial","Jarabe Infantil"
-];
-
-let contenedor=document.getElementById("lista");
-
-function mostrar(lista){
-contenedor.innerHTML="";
-lista.forEach((med,i)=>{
-setTimeout(()=>{
-contenedor.innerHTML+=`
-<div class="card">
-<h3>${med}</h3>
-<p class="price">Consultar precio</p>
-<button onclick="consultar('${med}')">Consultar</button>
-</div>`;
-},i*50);
-});
-}
-
-mostrar(medicamentos);
-
-document.getElementById("buscador").addEventListener("keyup",function(){
-let texto=this.value.toLowerCase();
-let filtrados=medicamentos.filter(m=>m.toLowerCase().includes(texto));
-mostrar(filtrados);
-});
-
 function consultar(producto){
 let numero="0981689854";
 let mensaje="Hola, quisiera consultar disponibilidad de: "+producto;
