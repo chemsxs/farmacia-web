@@ -1,47 +1,120 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Farmacia El Descuento Jossy</title>
-    <style>
-        body {
-            font-family: Arial;
-            text-align: center;
-            background-color: #f2f2f2;
-        }
-        .container {
-            margin-top: 50px;
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            width: 60%;
-            margin-left: auto;
-            margin-right: auto;
-            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
-        }
-        h1 {
-            color: green;
-        }
-        .btn {
-            background: green;
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Farmacia El Descuento Jossy</title>
+
+<style>
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #e8f5e9, #ffffff);
+}
+
+header{
+    background: #2e7d32;
+    color:white;
+    padding:20px;
+    text-align:center;
+}
+
+.container{
+    padding:40px;
+    text-align:center;
+}
+
+.products{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.card{
+    background:white;
+    width:250px;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+.card img{
+    width:100%;
+    border-radius:8px;
+}
+
+.price{
+    color:#2e7d32;
+    font-size:18px;
+    font-weight:bold;
+}
+
+.whatsapp{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#25D366;
+    color:white;
+    padding:15px;
+    border-radius:50px;
+    text-decoration:none;
+    font-weight:bold;
+}
+footer{
+    background:#2e7d32;
+    color:white;
+    padding:15px;
+    text-align:center;
+    margin-top:40px;
+}
+</style>
 </head>
+
 <body>
 
+<header>
+<h1>Farmacia El Descuento Jossy</h1>
+<p>Las mejores ofertas en medicamentos</p>
+</header>
+
 <div class="container">
-    <h1>Farmacia El Descuento Jossy</h1>
-    <p>Las mejores ofertas en medicamentos y productos de salud.</p>
-    <p>📍 Dirección: Av. Bolivariana y Gualaceo</p>
-    <p>📞 WhatsApp: 0981689854</p>
-    <p>🕒 Horario: 8:00am - 9:00pm</p>
-    <br>
-    <a class="btn" href="#">Contáctanos</a>
+<h2>Productos Destacados</h2>
+
+<div class="products">
+
+<div class="card">
+<img src="https://via.placeholder.com/250x180" alt="Paracetamol">
+<h3>Paracetamol</h3>
+<p>Alivia dolor y fiebre</p>
+<p class="price">$2.50</p>
 </div>
+
+<div class="card">
+<img src="https://via.placeholder.com/250x180" alt="Vitamina C">
+<h3>Vitamina C</h3>
+<p>Refuerza el sistema inmune</p>
+<p class="price">$5.00</p>
+</div>
+
+<div class="card">
+<img src="https://via.placeholder.com/250x180" alt="Jarabe">
+<h3>Jarabe para la tos</h3>
+<p>Para adultos y niños</p>
+<p class="price">$4.25</p>
+</div>
+
+</div>
+
+</div>
+
+<a class="whatsapp" href="https://wa.me/593981689854" target="_blank">
+WhatsApp
+</a>
+
+<footer>
+📍 Dirección: Av. Bolivariana y Gualaceo | 🕒 8am - 9pm
+</footer>
 
 </body>
 </html>
