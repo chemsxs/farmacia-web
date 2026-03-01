@@ -6,67 +6,39 @@
 <title>Farmacia El Descuento Jossy</title>
 
 <style>
-body{
-    margin:0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #e8f5e9, #ffffff);
+body{margin:0;font-family:Arial;background:#f4fdf6;}
+header{background:#2e7d32;color:white;padding:15px;text-align:center;}
+nav{background:#1b5e20;padding:10px;text-align:center;}
+nav a{color:white;margin:15px;text-decoration:none;font-weight:bold;}
+.hero{
+padding:60px 20px;
+text-align:center;
+background:linear-gradient(to right,#e8f5e9,#ffffff);
 }
-
-header{
-    background: #2e7d32;
-    color:white;
-    padding:20px;
-    text-align:center;
-}
-
-.container{
-    padding:40px;
-    text-align:center;
-}
-
-.products{
-    display:flex;
-    justify-content:center;
-    gap:20px;
-    flex-wrap:wrap;
-}
-
-.card{
-    background:white;
-    width:250px;
-    padding:20px;
-    border-radius:10px;
-    box-shadow:0 4px 10px rgba(0,0,0,0.1);
-}
-
-.card img{
-    width:100%;
-    border-radius:8px;
-}
-
-.price{
-    color:#2e7d32;
-    font-size:18px;
-    font-weight:bold;
-}
-
-.whatsapp{
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    background:#25D366;
-    color:white;
-    padding:15px;
-    border-radius:50px;
-    text-decoration:none;
-    font-weight:bold;
+.btn{
+background:#2e7d32;
+color:white;
+padding:12px 25px;
+border-radius:5px;
+text-decoration:none;
 }
 footer{
-    background:#2e7d32;
-    color:white;
-    padding:15px;
-    text-align:center;
-    margin-top:40px;
+background:#2e7d32;
+color:white;
+text-align:center;
+padding:15px;
+margin-top:40px;
+}
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+padding:15px;
+border-radius:50px;
+text-decoration:none;
+font-weight:bold;
 }
 </style>
 </head>
@@ -75,46 +47,28 @@ footer{
 
 <header>
 <h1>Farmacia El Descuento Jossy</h1>
-<p>Las mejores ofertas en medicamentos</p>
 </header>
 
-<div class="container">
-<h2>Productos Destacados</h2>
+<nav>
+<a href="index.html">Inicio</a>
+<a href="productos.html">Productos</a>
+<a href="contacto.html">Contacto</a>
+</nav>
 
-<div class="products">
-
-<div class="card">
-<img src="https://via.placeholder.com/250x180" alt="Paracetamol">
-<h3>Paracetamol</h3>
-<p>Alivia dolor y fiebre</p>
-<p class="price">$2.50</p>
+<div class="hero">
+<h2>Las mejores ofertas en medicamentos</h2>
+<p>Calidad, confianza y precios bajos</p>
+<br>
+<a class="btn" href="productos.html">Ver Productos</a>
 </div>
-
-<div class="card">
-<img src="https://via.placeholder.com/250x180" alt="Vitamina C">
-<h3>Vitamina C</h3>
-<p>Refuerza el sistema inmune</p>
-<p class="price">$5.00</p>
-</div>
-
-<div class="card">
-<img src="https://via.placeholder.com/250x180" alt="Jarabe">
-<h3>Jarabe para la tos</h3>
-<p>Para adultos y niños</p>
-<p class="price">$4.25</p>
-</div>
-
-</div>
-
-</div>
-
-<a class="whatsapp" href="https://wa.me/593981689854" target="_blank">
-WhatsApp
-</a>
 
 <footer>
-📍 Dirección: Av. Bolivariana y Gualaceo | 🕒 8am - 9pm
+📍 Dirección: Tu dirección aquí | 🕒 8am - 9pm
 </footer>
+
+<a class="whatsapp" href="https://wa.me/593XXXXXXXXX" target="_blank">
+WhatsApp
+</a>
 
 </body>
 </html>
