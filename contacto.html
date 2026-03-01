@@ -1,22 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contacto</title>
+<title>Contacto - Farmacia El Descuento Jossy</title>
 
 <style>
-body{margin:0;font-family:Arial;background:#f4fdf6;}
-header{background:#2e7d32;color:white;padding:15px;text-align:center;}
-nav{background:#1b5e20;padding:10px;text-align:center;}
-nav a{color:white;margin:15px;text-decoration:none;font-weight:bold;}
-.container{padding:40px;text-align:center;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Segoe UI',sans-serif;background:#f8fbff;color:#1e293b;}
+
+header{background:#0ea5e9;color:white;padding:20px;text-align:center;}
+nav{background:#0284c7;padding:12px;text-align:center;}
+nav a{color:white;margin:0 15px;text-decoration:none;font-weight:600;}
+
+.container{padding:40px;text-align:center;animation:fadeUp 1s ease;}
+
+.info{
+background:white;
+padding:30px;
+border-radius:16px;
+box-shadow:0 8px 20px rgba(0,0,0,0.05);
+max-width:500px;
+margin:auto;
+}
+
 footer{
-background:#2e7d32;
+background:#0284c7;
 color:white;
 text-align:center;
 padding:15px;
 margin-top:40px;
+}
+
+@keyframes fadeUp{
+from{opacity:0;transform:translateY(40px);}
+to{opacity:1;transform:translateY(0);}
 }
 </style>
 </head>
@@ -24,7 +42,7 @@ margin-top:40px;
 <body>
 
 <header>
-<h1>Contacto</h1>
+<h2>Contacto</h2>
 </header>
 
 <nav>
@@ -34,14 +52,16 @@ margin-top:40px;
 </nav>
 
 <div class="container">
-<h2>Ubicación</h2>
-<p>Dirección: Av Bolivariana y Gualaceo</p>
-<p>Teléfono: 0981689854</p>
-<p>Horario: 8am - 9pm</p>
+<div class="info">
+<h3>Farmacia El Descuento Jossy</h3>
+<p>📍 Dirección: Av. Bolivariana y Gualaceo</p>
+<p>📞 Teléfono: 0981689854</p>
+<p>🕒 Horario: Lunes a Sábado 8:00 AM - 8:00 PM</p>
+</div>
 </div>
 
 <footer>
-Farmacia El Descuento Jossy
+© 2026 Farmacia El Descuento Jossy
 </footer>
 
 </body>
