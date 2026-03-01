@@ -3,16 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Farmacia El Descuento Jossy - Medicamentos, vitaminas y productos para bebés al mejor precio.">
-<meta name="keywords" content="farmacia, medicamentos, vitaminas, paracetamol, ibuprofeno">
-<title>Farmacia El Descuento Jossy</title>
+<meta name="description" content="Lista completa de medicamentos disponibles en Farmacia El Descuento Jossy.">
+<title>Productos - Farmacia El Descuento Jossy</title>
 
 <style>
 body{
 margin:0;
 font-family:'Segoe UI',sans-serif;
 background:#f5fbff;
-color:#333;
 }
 
 header{
@@ -35,25 +33,55 @@ text-decoration:none;
 font-weight:bold;
 }
 
-.hero{
-background:linear-gradient(135deg,#00b4d8,#48cae4);
-color:white;
+.container{
+padding:30px;
+}
+
+.search{
 text-align:center;
-padding:70px 20px;
+margin-bottom:20px;
 }
 
-.hero h1{
-font-size:36px;
-margin-bottom:10px;
+.search input{
+padding:10px;
+width:60%;
+max-width:400px;
+border-radius:5px;
+border:1px solid #ccc;
 }
 
-.btn{
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+gap:20px;
+}
+
+.card{
 background:white;
-color:#0077b6;
-padding:12px 20px;
-border-radius:30px;
-text-decoration:none;
+padding:15px;
+border-radius:15px;
+box-shadow:0 6px 15px rgba(0,0,0,0.08);
+transition:0.3s;
+text-align:center;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+.price{
+color:#0096c7;
 font-weight:bold;
+}
+
+button{
+background:#0096c7;
+color:white;
+border:none;
+padding:8px 12px;
+border-radius:5px;
+cursor:pointer;
+margin-top:8px;
 }
 
 footer{
@@ -63,13 +91,25 @@ text-align:center;
 padding:15px;
 margin-top:40px;
 }
+
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+padding:15px;
+border-radius:50%;
+text-decoration:none;
+font-size:22px;
+}
 </style>
 </head>
 
 <body>
 
 <header>
-<h2>Farmacia El Descuento Jossy</h2>
+<h2>Medicamentos Disponibles</h2>
 </header>
 
 <nav>
@@ -78,16 +118,61 @@ margin-top:40px;
 <a href="contacto.html">Contacto</a>
 </nav>
 
-<div class="hero">
-<h1>Tu salud al mejor precio 💊</h1>
-<p>Medicamentos • Vitaminas • Productos para Bebés</p>
-<br>
-<a class="btn" href="productos.html">Ver Productos</a>
+<div class="container">
+
+<div class="search">
+<input type="text" id="buscador" placeholder="Buscar medicamento...">
+</div>
+
+<div class="grid" id="lista"></div>
+
 </div>
 
 <footer>
 © 2026 Farmacia El Descuento Jossy
 </footer>
+
+<a class="whatsapp" href="https://wa.me/TU_NUMERO_AQUI" target="_blank">💬</a>
+
+<script>
+
+let medicamentos = [
+"Paracetamol","Ibuprofeno","Amoxicilina","Vitamina C","Vitamina B12",
+"Jarabe Infantil","Aspirina","Loratadina","Omeprazol","Diclofenaco",
+"Antigripal","Calcio","Ácido Fólico","Insulina","Crema Antibiótica",
+"Gel Antibacterial","Alcohol","Termómetro","Suero Oral","Melatonina"
+];
+
+let contenedor = document.getElementById("lista");
+
+function mostrar(lista){
+contenedor.innerHTML="";
+lista.forEach(med=>{
+contenedor.innerHTML+=`
+<div class="card">
+<h3>${med}</h3>
+<p class="price">Consultar precio</p>
+<button onclick="consultar('${med}')">Consultar disponibilidad</button>
+</div>
+`;
+});
+}
+
+mostrar(medicamentos);
+
+document.getElementById("buscador").addEventListener("keyup", function(){
+let texto = this.value.toLowerCase();
+let filtrados = medicamentos.filter(m=>m.toLowerCase().includes(texto));
+mostrar(filtrados);
+});
+
+function consultar(producto){
+let numero="TU_NUMERO_AQUI";
+let mensaje="Hola, quisiera consultar disponibilidad de: "+producto;
+window.open("https://wa.me/"+numero+"?text="+encodeURIComponent(mensaje));
+}
+
+</script>
 
 </body>
 </html>
