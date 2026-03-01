@@ -3,51 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Lista completa de medicamentos disponibles en Farmacia El Descuento Jossy.">
 <title>Productos - Farmacia El Descuento Jossy</title>
 
 <style>
+*{margin:0;padding:0;box-sizing:border-box;}
 body{
-margin:0;
 font-family:'Segoe UI',sans-serif;
-background:#f5fbff;
+background:#f8fbff;
 }
 
-header{
-background:#0096c7;
-color:white;
-padding:20px;
-text-align:center;
-}
+header{background:#0ea5e9;color:white;padding:20px;text-align:center;}
+nav{background:#0284c7;padding:12px;text-align:center;}
+nav a{color:white;margin:0 15px;text-decoration:none;font-weight:600;}
 
-nav{
-background:#0077b6;
-padding:12px;
-text-align:center;
-}
+.container{padding:30px;}
 
-nav a{
-color:white;
-margin:15px;
-text-decoration:none;
-font-weight:bold;
-}
-
-.container{
-padding:30px;
-}
-
-.search{
-text-align:center;
-margin-bottom:20px;
-}
-
+.search{text-align:center;margin-bottom:25px;}
 .search input{
 padding:10px;
 width:60%;
 max-width:400px;
-border-radius:5px;
-border:1px solid #ccc;
+border-radius:6px;
+border:1px solid #cbd5e1;
 }
 
 .grid{
@@ -58,34 +35,36 @@ gap:20px;
 
 .card{
 background:white;
-padding:15px;
-border-radius:15px;
-box-shadow:0 6px 15px rgba(0,0,0,0.08);
+padding:20px;
+border-radius:16px;
+box-shadow:0 8px 20px rgba(0,0,0,0.05);
 transition:0.3s;
-text-align:center;
+animation:fadeUp 0.6s ease forwards;
+opacity:0;
 }
 
 .card:hover{
-transform:translateY(-5px);
+transform:translateY(-6px);
 }
 
-.price{
-color:#0096c7;
-font-weight:bold;
-}
+.price{color:#0ea5e9;font-weight:bold;margin:8px 0;}
 
 button{
-background:#0096c7;
+background:#0ea5e9;
 color:white;
 border:none;
-padding:8px 12px;
-border-radius:5px;
+padding:8px 14px;
+border-radius:6px;
 cursor:pointer;
-margin-top:8px;
+transition:0.3s;
+}
+
+button:hover{
+background:#0284c7;
 }
 
 footer{
-background:#0077b6;
+background:#0284c7;
 color:white;
 text-align:center;
 padding:15px;
@@ -102,6 +81,11 @@ padding:15px;
 border-radius:50%;
 text-decoration:none;
 font-size:22px;
+}
+
+@keyframes fadeUp{
+from{opacity:0;transform:translateY(30px);}
+to{opacity:1;transform:translateY(0);}
 }
 </style>
 </head>
@@ -135,34 +119,34 @@ font-size:22px;
 <a class="whatsapp" href="https://wa.me/TU_NUMERO_AQUI" target="_blank">💬</a>
 
 <script>
-
-let medicamentos = [
+let medicamentos=[
 "Paracetamol","Ibuprofeno","Amoxicilina","Vitamina C","Vitamina B12",
-"Jarabe Infantil","Aspirina","Loratadina","Omeprazol","Diclofenaco",
-"Antigripal","Calcio","Ácido Fólico","Insulina","Crema Antibiótica",
-"Gel Antibacterial","Alcohol","Termómetro","Suero Oral","Melatonina"
+"Loratadina","Omeprazol","Diclofenaco","Antigripal","Melatonina",
+"Ácido Fólico","Aspirina","Calcio","Suero Oral","Insulina",
+"Alcohol","Termómetro","Gel Antibacterial","Jarabe Infantil"
 ];
 
-let contenedor = document.getElementById("lista");
+let contenedor=document.getElementById("lista");
 
 function mostrar(lista){
 contenedor.innerHTML="";
-lista.forEach(med=>{
+lista.forEach((med,i)=>{
+setTimeout(()=>{
 contenedor.innerHTML+=`
 <div class="card">
 <h3>${med}</h3>
 <p class="price">Consultar precio</p>
-<button onclick="consultar('${med}')">Consultar disponibilidad</button>
-</div>
-`;
+<button onclick="consultar('${med}')">Consultar</button>
+</div>`;
+},i*50);
 });
 }
 
 mostrar(medicamentos);
 
-document.getElementById("buscador").addEventListener("keyup", function(){
-let texto = this.value.toLowerCase();
-let filtrados = medicamentos.filter(m=>m.toLowerCase().includes(texto));
+document.getElementById("buscador").addEventListener("keyup",function(){
+let texto=this.value.toLowerCase();
+let filtrados=medicamentos.filter(m=>m.toLowerCase().includes(texto));
 mostrar(filtrados);
 });
 
@@ -171,7 +155,6 @@ let numero="0981689854";
 let mensaje="Hola, quisiera consultar disponibilidad de: "+producto;
 window.open("https://wa.me/"+numero+"?text="+encodeURIComponent(mensaje));
 }
-
 </script>
 
 </body>
